@@ -1,0 +1,2 @@
+Jvm.printAll()
+Jvm.printCurrent()

@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Jar",
+        "repositoryURL": "https://github.com/SwiftPackageRepository/Jar.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "6ce7f3f3b9c7d5f515e596525ba90aa5c504b618",
+          "version": "0.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
