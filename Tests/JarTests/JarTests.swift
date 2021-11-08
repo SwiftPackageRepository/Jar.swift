@@ -2,10 +2,22 @@ import XCTest
 @testable import Jar
 
 final class JarTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(Jar().text, "Hello, World!")
+    func testJavaVirtualMachines() throws {
+        let java = Java()
+        java.javaVirtualMachines.installed.forEach { javaVirtualMachine in
+            XCTAssertNotNil(javaVirtualMachine.version)
+            XCTAssertNotNil(javaVirtualMachine.platform)
+            XCTAssertNotNil(javaVirtualMachine.name)
+            XCTAssertNotNil(javaVirtualMachine.distributor)
+            XCTAssertNotNil(javaVirtualMachine.path)
+        }
+    }
+
+    func testJavaVirtualMachine() throws {
+        let java = Java()
+        if let executable = java.javaVirtualMachines.current?.executable {
+            let fileExists = FileManager.default.fileExists(atPath: executable.path)
+            XCTAssertTrue(fileExists)
+        }
     }
 }
