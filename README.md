@@ -23,7 +23,7 @@ This is a **Swift** package with support for macOS that allows to start Java Jar
 The latest version of Jar requires:
 
 - Swift 5+
-- iOS 13+
+- macOS 10.12+
 - Xcode 11+
 
 ## Installation
