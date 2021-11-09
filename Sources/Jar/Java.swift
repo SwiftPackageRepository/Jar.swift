@@ -25,6 +25,7 @@
 ///
 
 import Foundation
+import OSLog
 
 public struct Java {
     public private(set) var current: JavaVirtualMachine?
@@ -65,6 +66,7 @@ public struct Java {
             let result = try run(pathToJar: pathToJar, args: args)
             return (result, nil)
         } catch {
+            os_log("Failed running %{public}@", log: .java, type: .error, error.localizedDescription)
             return (nil, error)
         }
     }

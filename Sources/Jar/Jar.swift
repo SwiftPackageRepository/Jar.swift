@@ -25,6 +25,7 @@
 ///
 
 import Foundation
+import OSLog
 
 public struct Jar {
 
@@ -56,27 +57,25 @@ public struct Jar {
             do {
                 try FileManager.default.createDirectory(atPath: jars.path, withIntermediateDirectories: true, attributes: nil)
             } catch {
-                print(error.localizedDescription)
+                os_log("Failed creating directories %{public}@ with %{public}@", log: .jar, type: .error, jars.path, error.localizedDescription)
                 failed(error)
                 return
             }
         }
-        URLSession.shared.dataTask(with: origin) { data, response, error in
+        let dataTask = URLSession.shared.dataTask(with: origin) { data, response, error in
             guard let data = data else {
                 return
             }
             do {
                 try data.write(to: pathToJar, options: [])
             } catch {
-                print(error.localizedDescription)
+                os_log("Failed writing JAR %{public}@ logged in", log: .jar, type: .error, error.localizedDescription)
                 failed(error)
                 return
             }
-            DispatchQueue.main.async {
-                completion(pathToJar)
-            }
+            completion(pathToJar)
         }
-        .resume()
+        dataTask.resume()
     }
 
     public func bootstrap() -> (url: URL?, error: Error?) {
@@ -88,6 +87,7 @@ public struct Jar {
             semaphore.signal()
         } failed: { error in
             resultError = error
+            os_log("Failed bootstraping %{public}@", log: .jar, type: .error, error.localizedDescription)
             semaphore.signal()
         }
         semaphore.wait()
