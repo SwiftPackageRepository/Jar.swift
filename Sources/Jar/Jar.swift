@@ -79,7 +79,7 @@ public struct Jar {
         .resume()
     }
 
-    func bootstrap() -> (url: URL?, error: Error?) {
+    public func bootstrap() -> (url: URL?, error: Error?) {
         let semaphore = DispatchSemaphore(value: 0)
         var resultURL: URL?
         var resultError: Error?
