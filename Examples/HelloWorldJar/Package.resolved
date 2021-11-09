@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Jar",
+        "repositoryURL": "/Users/smuellner/Developer/opensource/SwiftPackageRepository/Jar.swift",
+        "state": {
+          "branch": "main",
+          "revision": "6aa601d08f06c6aba87926700d2a51dfddbdf9ae",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -53,6 +53,22 @@ public struct Java {
         }
     }
 
+    public func run(jar: Jar, args: [String]) -> (results: String?, error: Error?) {
+        let (pathToJar, bootstrapError) = jar.bootstrap()
+        if bootstrapError != nil {
+            return (nil, bootstrapError)
+        }
+        guard let pathToJar = pathToJar else {
+            return (nil, nil)
+        }
+        do {
+            let result = try run(pathToJar: pathToJar, args: args)
+            return (result, nil)
+        } catch {
+            return (nil, error)
+        }
+    }
+
     public func run(pathToJar: URL, args: [String]?) throws -> String {
         return try run(pathToJar: pathToJar.path, args: args)
     }

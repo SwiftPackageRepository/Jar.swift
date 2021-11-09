@@ -78,4 +78,19 @@ public struct Jar {
         }
         .resume()
     }
+
+    func bootstrap() -> (url: URL?, error: Error?) {
+        let semaphore = DispatchSemaphore(value: 0)
+        var resultURL: URL?
+        var resultError: Error?
+        bootstrap { url in
+            resultURL = url
+            semaphore.signal()
+        } failed: { error in
+            resultError = error
+            semaphore.signal()
+        }
+        semaphore.wait()
+        return (resultURL, resultError)
+    }
 }
