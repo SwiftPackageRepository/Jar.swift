@@ -11,8 +11,8 @@ Jar.swift is **created and maintaned with ❥** by Sascha Muellner.
 ![Version](https://img.shields.io/github/v/tag/SwiftPackageRepository/Jar.swift)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwiftPackageRepository%2FJar.swift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/SwiftPackageRepository/Jar.swift)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwiftPackageRepository%2FJar.swift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/SwiftPackageRepository/Jar.swift)
-[![SPM compatible](https://img.shields.io/badge/SPM-compatible-orange.svg?style=flat)](https://github.com/apple/swift-package-manager)
-[![README](https://img.shields.io/badge/-README-lightgrey)](https://SwiftPackageRepository.github.io/Jar.swift)
+[![SPM compatible](https://img.shields.io/badge/SPM-compatible-green.svg?style=flat)](https://github.com/apple/swift-package-manager)
+[![README](https://img.shields.io/badge/-README-blue)](https://SwiftPackageRepository.github.io/Jar.swift)
 
 
 ## What?
